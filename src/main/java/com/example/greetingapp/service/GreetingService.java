@@ -43,11 +43,11 @@ public class GreetingService {
         return "Delete Succesfully";
     }
 
-    //Update
-    public User updateGreet(User greetingModel){
-        User existing = greetingRepository.findById(greetingModel.getId()).orElse(null);
-        existing.setFirstName(greetingModel.getFirstName());
-        existing.setLastName(greetingModel.getLastName());
-        return greetingRepository.save(existing);
+
+    public User updateGreet(int id, User greetingModel) {
+        greetingModel.setId(id);
+        return greetingRepository.save(greetingModel);
     }
+
+
 }

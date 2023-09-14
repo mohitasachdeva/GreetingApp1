@@ -43,14 +43,18 @@ public class GreetingController {
     }
 
     //put
-    @PutMapping("/Update")
-    public User updateGreets(@RequestBody User greetingModel) {
-        return greetingService.updateGreet(greetingModel);
-    }
+//    @PutMapping("/UpdateByID{id}")
+//    public User updateGreets( @PathVariable int id, @RequestBody User greetingModel) {
+//        return greetingService.updateGreet(id,greetingModel);
+//    }
 
     //delete
     @DeleteMapping("/Delete/{id}")
     public String deleteGreet(@PathVariable int id) {
         return greetingService.deleteGreet(id);
+    }
+    @PutMapping("/putGreet/{id}")
+    public User updateGreetById(@PathVariable int id, @RequestBody User greetingModel) {
+        return greetingService.updateGreet(id, greetingModel);
     }
 }
